@@ -1,18 +1,18 @@
 SELECT 
-    Customer.CustomerID,
+    Customers.CustomerID,
     Orders.OrderID,
     Orders.TotalCost,
-    Menu.Cuisines,
-    Menu.Starters,
-    Menu.Courses,
-    MenuItem.ItemName
+    Menu.Cuisine,
+    Menu.Starter,
+    Menu.Course,
+    MenuItems.ItemName
 FROM
     Orders
         INNER JOIN
-    Customer ON Customer.CustomerID = Orders.CustomerID
+    Customers ON Customers.CustomerID = Orders.CustomerID
         INNER JOIN
     Menu ON Orders.MenuID = Menu.MenuID
         INNER JOIN
-    MenuItem ON Orders.MenuItemID = MenuItem.MenuItemID
+    MenuItems ON Orders.MenuItemID = MenuItems.MenuItemID
 WHERE
     Orders.TotalCost > 150;
